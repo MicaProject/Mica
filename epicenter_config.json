@@ -1,0 +1,17 @@
+{
+    "config_name": "default",
+    "plugins_to_start": [
+
+        {"path":"plugins",
+        "name":"commands"},
+
+        {"path":"plugins",
+        "name":"core"},
+
+        {"path":"plugins",
+        "name":"eliza"}
+    ],
+
+    "print_errors": true,
+    "break_on_error":true
+}
