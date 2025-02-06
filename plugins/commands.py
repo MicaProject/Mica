@@ -7,7 +7,6 @@ def __init__(self):
     self.cmd_prefixes = ['!','.',':']
     self.subscribe_to_variable("text_input", "commands", "interpret_command", thread=False, args=["self"], kwargs={}, rargs = [])
     #commands related
-    self.command_manifest.append({"plugin":__name__,"function":"general_ping","command":"ping","help":"Prompts each plugin to print a pong","args":["self"],"rargs":[]})
     self.command_manifest.append({"plugin":__name__,"function":"print_help","command":"help","help":"Prints the help for each available command","args":["self"],"rargs":[]})
     self.command_manifest.append({"plugin":__name__,"function":"print_plugins","command":"plugins","help":"Prints the active plugins","args":["self"],"rargs":[]})
     self.command_manifest.append({"plugin":__name__,"function":"start_plugin","command":"startplugin","help":"Starts the selected plugin","args":["self"],"rargs":[]})

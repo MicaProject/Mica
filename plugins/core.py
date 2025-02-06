@@ -3,13 +3,12 @@ import time
 def __init__(self):
     self.command_manifest.append({"plugin":__name__,"function":"get_variable_origin","command":"origin","help":"Returns the file and line of a variable's initialisation","args":["self"],"rargs":[]})
     self.command_manifest.append({"plugin":__name__,"function":"load_plugin_wrapper","command":"plug","help":"(plugin/path/plugin_name) Starts the designated plugin","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"load_plugin_wrapper","command":"unplug","help":"(plugin/path/plugin_name) Stops the designated plugin","args":["self"],"rargs":[]})
     self.command_manifest.append({"plugin":__name__,"function":"stop","command":"quit","help":"Stops The assistant","args":["self"],"rargs":[]})
     self.command_manifest.append({"plugin":__name__,"function":"restart","command":"r","help":"Restarts The assistant","args":["self"],"rargs":[]})
     self.command_manifest.append({"plugin":__name__,"function":"restart","command":"restart","help":"Restarts The assistant","args":["self"],"rargs":[]})
     self.command_manifest.append({"plugin":__name__,"function":"update","command":"update","help":"Pulls from the repository and restarts","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"set_variable","command":"set","help":"Pulls from the repository and restarts","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"list_variables","command":"list","help":"Pulls from the repository and restarts","args":["self"],"rargs":[]})
+    self.command_manifest.append({"plugin":__name__,"function":"set_variable","command":"set","help":"Sets an available variable to a desired value","args":["self"],"rargs":[]})
+    self.command_manifest.append({"plugin":__name__,"function":"list_variables","command":"list","help":"Lists the variables in the Mica instance","args":["self"],"rargs":[]})
     self.check_subdict_in_dict_list = check_subdict_in_dict_list
 
 

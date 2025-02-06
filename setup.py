@@ -13,9 +13,9 @@ def setup():
     print("Creating shortcut")
     os.chdir(os.path.join(os.path.dirname(__file__),"tools"))
     print(os.getcwd())
-    target = os.path.join(os.path.dirname(__file__),'..',"mica.py")
+    target = os.path.join(os.path.dirname(__file__),"mica.py")
     print(target)
-    shortcutCreator.create_shortcut(name="Mica Assistant",target=target,icon=os.path.join(os.path.dirname(__file__),"mica.ico"))
+    shortcutCreator.create_shortcut(name="Mica Assistant",target=target,icon=os.path.join(os.path.dirname(__file__),"tools","mica.ico"))
 
 if __name__ == "__main__":
     setup()
