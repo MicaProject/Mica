@@ -1,4 +1,5 @@
 #pip install winshell
+#pip install pywin32
 #source https://www.codespeedy.com/create-the-shortcut-of-any-file-in-windows-using-python/
 import os,sys
 
