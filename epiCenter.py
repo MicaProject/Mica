@@ -2,7 +2,7 @@ import json
 import os, sys
 import time
 import threading
-import inspect
+import types
 
 #              .___________                __                
 #  ____ ______ |__\_   ___ \  ____   _____/  |_  ___________ 
@@ -95,16 +95,15 @@ class epiCenter():
                     else:
                         setattr(self,attribute,self.plugins[plugin["name"]].__dict__[attribute])
                     
-            if "__init__" in dir(self.plugins[plugin["name"]]):
-                self.plugins[plugin["name"]].__init__(self)
-
-
-        else:
             
+        else:
             self.plugins[plugin["name"]] = __import__(plugin["name"])
-
-            if "__init__" in dir(self.plugins[plugin["name"]]):
-                self.plugins[plugin["name"]].__init__(self)
+            for attribute in self.plugins[plugin["name"]].__dict__.keys():
+                if callable(self.plugins[plugin["name"]].__dict__[attribute]):
+                    self.__dict__[attribute] = types.MethodType(self.plugins[plugin["name"]].__dict__[attribute],self)
+    
+        if "__init__" in dir(self.plugins[plugin["name"]]):
+            self.plugins[plugin["name"]].__init__(self)
 
 
 
