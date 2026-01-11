@@ -42,6 +42,10 @@ def get_permutations(self, template_text):
             else:
                 for i,element in enumerate(existing_p):
                     existing_p[i] =  element+' '+word
+    temp_p = []
+    for permutation in existing_p:
+        temp_p.append(permutation.replace('  ',' '))
+    existing_p = temp_p
     return existing_p
                     
 def load_template_file(self, path):
@@ -80,11 +84,14 @@ def get_arguments_from_template(self,text,template):
     template_list = template.lower().split(' ')
     anchors = []#list of tuple with (anchor, pos_in_text, pos_in_template)
     current_pos_in_text = 0
+    if template == 'remove the plugin named {plugin_name}':
+        pass
     for i,word in enumerate(template_list):
         if not word.startswith('[') and not word.startswith('{'):
             if word not in text_list[current_pos_in_text:]:
                 return False
-            current_pos_in_text = text_list[current_pos_in_text:].index(word)
+            current_pos_in_text = text_list.index(word,current_pos_in_text)
+           
             anchors.append((word,current_pos_in_text,i))
     # Turn these tuples into hole-text couples
     couples = [] #tuple with (text, hole(can be several))

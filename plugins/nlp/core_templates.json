@@ -17,5 +17,11 @@
     ],
     "add_plugin": [
         "add plugin {plugin_clone_url}"
+    ],
+    "show_plugins": [
+        "Show me/ the available/ plugins"
+    ],
+    "remove_plugin": [
+        "remove the/ plugin named/ {plugin_name}"
     ]
 }
