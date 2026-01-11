@@ -1,5 +1,4 @@
 *.pyc
 *.pth
+*__pycache__*
 Mica Assistant.lnk
-mica_config.json
-realtimesst.log

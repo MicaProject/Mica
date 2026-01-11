@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mica assistant - By and for everyone</title>
+    <link rel="stylesheet" href="templatemo-chain-summit.css">
+<!-- 
+
+TemplateMo 601 Chain Summit
+
+https://templatemo.com/tm-601-chain-summit
+
+Should lok like:
+- Hero
+(- Active interface)
+- About (All open source, easy to understand to adapt / beginner friendly)
+- Getting Started
+- Contribute
+- Features
+    - Plugin
+    - NLP
+    - Community
+
+
+-->
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="neural-network" id="neuralNetwork"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+    <div id="main">
+        <!-- Header -->
+        <header id="mainHeader">
+            <nav>
+                <a href="#home" class="logo">
+                    <span class="logo-text">Mica assistant</span>
+                </a>
+                <ul id="nav-links" class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#getting-started">Download</a></li>
+                    <li><a href="#contribute">Contribute</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#assistant-ui" id="uiToggle" onclick="toggleNav()" style="display:none">Live Assistant</a></li>
+                </ul>
+                <div class="mobile-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav" id="mobileNav">
+                <a href="#about" onclick="closeMenu()">About</a>
+                <a href="#getting-started" onclick="closeMenu()">Download</a>
+                <a href="#contribute" onclick="closeMenu()">Contribute</a>
+                <a href="#features" onclick="closeMenu()">Features</a>
+            </div>
+        </header>
+    
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>The assistant by you, for you</h1>
+                <p>A new, core-less approach to community projects</p>
+                
+
+                <div class="cta-buttons">
+                    <a href="#about" class="btn btn-primary">Learn More</a>
+                    <a href="#getting-started" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="animate-on-scroll">About Mica</h2>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll slide-left">
+                    <p>Mica is an open source, lightweight assistant running on your computer, not using heavy AI models, but relying on the community to expand its capabilities.</p>
+                    <p>Its full code is written in Python, a language easy to understand for beginners and complete for experienced programmers.</p>
+                    <p>Its EpiCenter library handles all the complex plugin handling, allowing anyone to easily add functionalities.</p>
+                    <p>It is shipped with a comprehensive array of capabilities, and its core-less architecture allows users to tailor or replace everything it does by default.</p>                
+                    <p>Its base plugins allow anyone to develop functionalities and link them to natural language queries, enabling users to command the assistant without unfriendly bash-style prompts.</p>
+                </div>
+                <div class="speaker-card animate-on-scroll scale-up stagger-animation animated" style="max-width: 250px;">
+                    <img src="mica-walk.gif" alt="Mica#s mascot !" style="width:150px;height:150px;">
+                    <p>Mica's mascot !</p>
+                </div>
+                
+            </div>
+            
+            <!-- Hexagonal decorations -->
+            <div class="hex-decoration" style="top: 10%; left: 5%;"></div>
+            <div class="hex-decoration" style="top: 70%; right: 10%; animation-delay: 2s;"></div>
+            <div class="hex-decoration" style="top: 40%; right: 5%; animation-delay: 4s;"></div>
+            <h3 class="contact-info-title" style="text-align: center;">The goal of this project is to create an open-source home assistant that YOU have control on</h3>
+
+        </section>
+
+        <!-- Getting Started Section -->
+        <section id="getting-started" class="section">
+            <div class="contact-info-section animate-on-scroll">
+                <h2 class="animate-on-scroll">Getting Started</h2>
+                <div class="about-text animate-on-scroll slide-left" style="grid-template-columns: none">
+                    <h3 class="contact-info-title">Prerequisites</h3>
+                    <p>To run Mica, you have to install these first, everything there is open source and free.<br></p>
+                    <div class="contact-info-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Python</span>
+                                <span class="contact-value">The language in which Mica is written<br>Minimum version is Python3.8, get it here: <a href="https://www.python.org/downloads/" target=”_blank”>https://www.python.org/downloads/</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="contact-info-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Git</span>
+                                <span class="contact-value">The way Mica is distributed and its plugins are shared, get it here: <a href="https://git-scm.com/install/" target=”_blank”>https://git-scm.com/install/</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <h3 class="contact-info-title">Installing via Git</h3>
+                    Open a command prompt, and type:
+                    <button onclick="" class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">git clone https://github.com/MicaProject/Mica.git</span>
+                    </button>
+                    <h3 class="contact-info-title">Running the install script</h3>
+                    In the same command prompt, type:
+                    <div class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">cd Mica</span>
+                    </div>
+                    And then:
+                    <div class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">python setup.py</span>
+                    </div>
+                    This command will install the packages necessary for Mica and create a handy shortcut ! (if you use Windows at least...)
+                    <br>
+                    <h3 class="contact-info-title">Starting Mica !</h3>
+                    <p>If you are using windows, a shortcut has been created in the new folder, simply click it !</p>
+                    Alternatively, if you prefer to use the command prompt:
+                    <div class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">python -m mica</span>
+                    </div>
+                    <p>Mica is set as a module, so it can be started from anywhere!</p>
+                
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Contribute Section -->
+        <section id="contribute" class="section">
+            <div class="contact-info-section animate-on-scroll">
+                <h2 class="animate-on-scroll">Feeling like Mica needs to do more ?<br>Download and upload plugins !</h2>
+                <div class="about-text animate-on-scroll slide-left" style="grid-template-columns: none">
+                    <h3 class="contact-info-title">Download plugins</h3>
+                    <p>Mica's default plugins allow to easily add plugins from <a href="https://github.com/search?q=mica-assistant-plugin%20in%3Atopics&type=repositories" target=”_blank”>Github</a></p>
+                    <p>Simply look for github repositories with the topic: <a href="https://github.com/search?q=mica-assistant-plugin%20in%3Atopics&type=repositories" target=”_blank”>mica-assistant-plugin</a>, get the download link (finishing in .git)</p>
+                    <p>Then, tell Mica:
+                    <div class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">> add plugin plugin-link</span>
+                    </div>
+                    This will download and activate the plugin, all automatic !
+                    </p>
+
+                    <h3 class="contact-info-title">Share with the community</h3>
+                    <p>You created a plugin that others would like ? Everyone can upload plugins on Github and make them available to the community</p>
+                    <p>Simply publish a public Github repository, and set the topic of the repo to <a href="https://github.com/search?q=mica-assistant-plugin%20in%3Atopics&type=repositories" target=”_blank”>mica-assistant-plugin</a>.
+                    <br>To add a topic to your repository, you can follow <a href="https://docs.github.com/fr/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics" target=”_blank”>this guide</a></p>
+                    Things to keep in mind:
+                    <ul>
+                        <li>The repository must be named the same as the plugin</li>
+                        <li>The plugin must be in the root of the repository</li>
+                        <li>If the plugin relies on other plugins to be downloaded, you can create a file named "required-plugins.txt", with one plugin name per line</li>
+                    </ul>
+                    As soon as you upload it to github, every other user will have access to it !
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <div class="contact-info-section animate-on-scroll">
+                <h2 class="animate-on-scroll">Main Features</h2>
+                <div class="about-text animate-on-scroll slide-left" style="grid-template-columns: none">
+                    <h3 class="contact-info-title">Plugin System</h3>
+                    <p>The Secret to Mica's core-less architecture it its plugins, no need to have any core capabilities if everything can be made optional !
+                    <br>This way, each plugin adds or changes functionalities, making Mica completely customisable !<br>
+                    If you like a plugin but thinks it needs tweaking, you can rewrite any method by loading the old plugin first, then by loading a plugin just containing your new method, this will simply overwrite the one in the old plugin.<br>
+                    Mica loads every plugin found in its configuration file "mica_config.json", so its easy to changes which plugins are loaded !<br>
+                    If your plugin needs functionalities from another plugin, simply add the line:
+                    <div class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">required_plugins = ["required plugin name", ]</span>
+                    </div>
+                    and the bootloader will automatically reorganise the loading order to make sure that the required plugins are loaded before.
+                    </p>
+                    <h3 class="contact-info-title">Call methods with natural language</h3>
+                    <p>While not relying on a language model, Mica can understand natural text, by relying on natural languages templates.<br>
+                    Such a template looks like this:
+                    <div class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">"auto_engine": [<br>
+                            "Open {browser} and search {*query}",<br>
+                            "On {browser} search {*query}",<br>
+                            "with {browser} search/open {*query}",<br>
+                            "open/search/play {*query} on/with {browser}"<br>],</span>
+                    </div>
+                    Each of these sentences will start the method "auto_engine", the words between brackets are the arguments that will be fed to the method.<br>
+                    When there is an asterisk before the word, it means this argument can take text of multiple words, this is useful if you dont know how long this output is<br>
+                    When words are separated by a /, it means each of these words are valid for this sentence !
+                    </p>
+                    <p>To link your own sentences to your plugin's functionalities, you can create additional template files, simply create a json file with the same structure as plugins/nlp/core_templates.json and in your plugin, call this method:
+                        <div class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">self.load_template_file("path to the json file")</span>
+                    </div>
+                    and mark nlp-core as a required plugin !
+                    </p>
+                    <p>If you want to add templates without restarting everything, you can tell Mica:
+                    <div class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">> Append your-template to your-method</span>
+                    </div>
+                    and Mica will edit the right template file for you !
+                    </p>
+                    <p>If you wonder what Mica can say at any moment, just say:
+                    <div class="about-stat" style="padding: 5px">
+                        <span class="about-stat-number" style="text-align: left; font-size:medium; margin-bottom: auto; margin-left: 1rem;">> What can I say ?</span>
+                    </div>
+                    </p>
+                    <h3 class="contact-info-title">Community Workshop</h3>
+                    <p>Mica leverages Github's code sharing capability to create a fully integrated community workshop !<br>
+                    There, users can share functionalities, interfaces, themes, and anything they can think of in the form of plugins<br>
+                    Mica provides natural language commands that allow non developers to download these community-made plugins without headaches !
+                    </p>
+                    <p>For more information, check out the a <a href="#contribute">Contribute section</a></p>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <h2>Mica Assistant</h2>
+                <!-- set the event date in the JavaScript file / line number 32 -->
+                <div class="social-links">
+                    <a href="https://github.com/MicaProject/Mica" class="social-link">G</a>
+                    <a href="https://x.com/minthu" class="social-link" rel="nofollow noopener" target="_blank">T</a>
+                </div>
+
+                <p>
+                    Webpage design by <a href="https://templatemo.com" rel="nofollow noopener" target="_blank">TemplateMo</a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+    <div id="mySidebar" class="sidebar">
+
+        <!-- Assistant UI-->
+        <section id="assistant-ui" class="section" style="padding: 3% 2rem;">
+            <div id="assistant-output" class="contact-form-column" style="text-align: left; line-height: 100%; overflow:scroll; height: 77vh;">
+
+            </div>
+            <br>
+            <div class="email-form" style="max-width: none; height:10%">
+                <input 
+                    type="text" 
+                    class="email-input" 
+                    placeholder='type "help" or "What can I say ?"' 
+                    id="assistant-input"
+                >
+                <button id="submit-btn" type="submit" class="submit-btn" onclick="sendCommand()">Send</button>
+            </div>
+        </section>
+    </div>
+    
+<script src="templatemo-chain-scripts.js"></script>
+</body>
+</html>

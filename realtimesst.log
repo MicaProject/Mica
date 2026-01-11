@@ -1,0 +1,70 @@
+2025-02-07 22:33:18.979 - RealTimeSTT: root - INFO - Starting RealTimeSTT
+2025-02-07 22:33:18.983 - RealTimeSTT: root - INFO - Initializing audio recording (creating pyAudio input stream, sample rate: 16000 buffer size: 512
+2025-02-07 22:33:18.985 - RealTimeSTT: root - INFO - Initializing WebRTC voice with Sensitivity 3
+2025-02-07 22:33:18.986 - RealTimeSTT: root - DEBUG - WebRTC VAD voice activity detection engine initialized successfully
+2025-02-07 22:33:19.415 - RealTimeSTT: torio._extension.utils - DEBUG - Loading FFmpeg6
+2025-02-07 22:33:19.440 - RealTimeSTT: torio._extension.utils - DEBUG - Failed to load FFmpeg6 extension.
+Traceback (most recent call last):
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 116, in _find_ffmpeg_extension
+    ext = _find_versionsed_ffmpeg_extension(ffmpeg_ver)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 108, in _find_versionsed_ffmpeg_extension
+    _load_lib(lib)
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 94, in _load_lib
+    torch.ops.load_library(path)
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\_ops.py", line 1350, in load_library
+    ctypes.CDLL(path)
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\ctypes\__init__.py", line 376, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: Could not find module 'C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\lib\libtorio_ffmpeg6.pyd' (or one of its dependencies). Try using the full path with constructor syntax.
+2025-02-07 22:33:19.464 - RealTimeSTT: torio._extension.utils - DEBUG - Loading FFmpeg5
+2025-02-07 22:33:19.488 - RealTimeSTT: torio._extension.utils - DEBUG - Failed to load FFmpeg5 extension.
+Traceback (most recent call last):
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 116, in _find_ffmpeg_extension
+    ext = _find_versionsed_ffmpeg_extension(ffmpeg_ver)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 108, in _find_versionsed_ffmpeg_extension
+    _load_lib(lib)
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 94, in _load_lib
+    torch.ops.load_library(path)
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\_ops.py", line 1350, in load_library
+    ctypes.CDLL(path)
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\ctypes\__init__.py", line 376, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: Could not find module 'C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\lib\libtorio_ffmpeg5.pyd' (or one of its dependencies). Try using the full path with constructor syntax.
+2025-02-07 22:33:19.489 - RealTimeSTT: torio._extension.utils - DEBUG - Loading FFmpeg4
+2025-02-07 22:33:19.515 - RealTimeSTT: torio._extension.utils - DEBUG - Failed to load FFmpeg4 extension.
+Traceback (most recent call last):
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 116, in _find_ffmpeg_extension
+    ext = _find_versionsed_ffmpeg_extension(ffmpeg_ver)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 108, in _find_versionsed_ffmpeg_extension
+    _load_lib(lib)
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 94, in _load_lib
+    torch.ops.load_library(path)
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\_ops.py", line 1350, in load_library
+    ctypes.CDLL(path)
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\ctypes\__init__.py", line 376, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: Could not find module 'C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\lib\libtorio_ffmpeg4.pyd' (or one of its dependencies). Try using the full path with constructor syntax.
+2025-02-07 22:33:19.516 - RealTimeSTT: torio._extension.utils - DEBUG - Loading FFmpeg
+2025-02-07 22:33:19.516 - RealTimeSTT: torio._extension.utils - DEBUG - Failed to load FFmpeg extension.
+Traceback (most recent call last):
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 116, in _find_ffmpeg_extension
+    ext = _find_versionsed_ffmpeg_extension(ffmpeg_ver)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maxim\AppData\Local\Programs\Python\Python311\Lib\site-packages\torio\_extension\utils.py", line 106, in _find_versionsed_ffmpeg_extension
+    raise RuntimeError(f"FFmpeg{version} extension is not available.")
+RuntimeError: FFmpeg extension is not available.
+2025-02-07 22:33:19.674 - RealTimeSTT: root - DEBUG - Silero VAD voice activity detection engine initialized successfully
+2025-02-07 22:33:19.674 - RealTimeSTT: root - DEBUG - Starting realtime worker
+2025-02-07 22:33:19.674 - RealTimeSTT: root - DEBUG - Waiting for main transcription model to start
+2025-02-07 22:33:21.905 - RealTimeSTT: root - DEBUG - Main transcription model ready
+2025-02-07 22:33:21.905 - RealTimeSTT: root - DEBUG - RealtimeSTT initialization completed successfully
+2025-02-07 22:33:21.906 - RealTimeSTT: root - INFO - Setting listen time
+2025-02-07 22:33:21.906 - RealTimeSTT: root - INFO - State changed from 'inactive' to 'listening'
+2025-02-07 22:33:21.906 - RealTimeSTT: root - DEBUG - Waiting for recording start
+2025-02-07 22:33:24.436 - RealTimeSTT: root - DEBUG - Receive from stdout pipe

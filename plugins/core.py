@@ -1,16 +1,38 @@
 import os, sys
 import time
+import importlib.util
 def __init__(self):
-    self.command_manifest.append({"plugin":__name__,"function":"get_variable_origin","command":"origin","help":"Returns the file and line of a variable's initialisation","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"load_plugin_wrapper","command":"plug","help":"(plugin/path/plugin_name) Starts the designated plugin","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"stop","command":"quit","help":"Stops The assistant","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"restart","command":"r","help":"Restarts The assistant","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"restart","command":"restart","help":"Restarts The assistant","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"update","command":"update","help":"Pulls from the repository and restarts","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"set_variable","command":"set","help":"Sets an available variable to a desired value","args":["self"],"rargs":[]})
-    self.command_manifest.append({"plugin":__name__,"function":"list_variables","command":"list","help":"Lists the variables in the Mica instance","args":["self"],"rargs":[]})
-    self.check_subdict_in_dict_list = check_subdict_in_dict_list
+    self.external_methods.append({"plugin":__name__,"method":self.get_variable_origin,"cmd":"origin","help":"Returns the file and line of a variable's initialisation","args":[],"dargs":[]})
+    self.external_methods.append({"plugin":__name__,"method":self.load_plugin_wrapper,"cmd":"plug","help":"(plugin/path/plugin_name) Starts the designated plugin","args":[],"dargs":[]})
+    self.external_methods.append({"plugin":__name__,"method":self.load_plugin_wrapper,"cmd":"unplug","help":"(plugin/path/plugin_name) Stops the designated plugin","args":[],"dargs":[]})
+    self.external_methods.append({"plugin":__name__,"method":self.stop,"cmd":"quit","help":"Stops The assistant","args":[],"dargs":[]})
+    self.external_methods.append({"plugin":__name__,"method":self.restart,"cmd":"r","help":"Restarts The assistant","args":[],"dargs":[]})
+    self.external_methods.append({"plugin":__name__,"method":self.restart,"cmd":"restart","help":"Restarts The assistant","args":[],"dargs":[]})
+    self.external_methods.append({"plugin":__name__,"method":self.update,"cmd":"update","help":"Pulls from the repository and restarts","args":[],"dargs":[]})
+    self.external_methods.append({"plugin":__name__,"method":self.set_variable,"cmd":"set","help":"Pulls from the repository and restarts","args":[],"dargs":[]})
+    self.external_methods.append({"plugin":__name__,"method":self.list_variables,"cmd":"list","help":"Pulls from the repository and restarts","args":[],"dargs":[]})
+    if "check_packages" in self.__dict__ and self.check_packages:
+        self.install_missing_packages(os.getcwd())
 
+def install_missing_packages(self,path):
+    for root,dirs,files in os.walk(path,topdown = False):
+        for file in files:
+            if file.endswith(".py") and file not in ["core.py", "pipScan.py"]:
+                with open(os.path.join(root,file),"r", encoding="utf-8") as f:
+                    for line in f.readlines():
+                        if line.lstrip().startswith("from ") or line.lstrip().startswith("import "):
+                            package_names = line.lstrip().split(' ')[1].split('.')[0].strip().split(',')
+                            for package_name in package_names:
+                                if package_name in ['']:
+                                    continue
+                                spec = importlib.util.find_spec(package_name)
+                                if spec is None:
+                                    #print([package_name],"is not installed")
+                                    if "pip install " in line:
+                                        package_name = line.split("pip install ")[1]
+                                        print("installing with command: pip install",package_name)
+                                        os.system("pip install "+package_name)
+                        
 
 def get_variable_origin(self,varname):
     files_to_check = [*self.config["plugins_to_start"]]
@@ -21,9 +43,9 @@ def get_variable_origin(self,varname):
         for i,line in enumerate(lines):
             if f".{varname}=" in line.replace(' ',''):
 
-                self.text_output.append(f'Variable "{varname}" is first initialised in {os.path.join(plugin["path"],plugin["name"]+".py")} line {i}')
+                self.output_text(f'Variable "{varname}" is first initialised in {os.path.join(plugin["path"],plugin["name"]+".py")} line {i}')
                 return
-    self.text_output.append(f'Variable "{varname}" is not found in any file in the config')
+    self.output_text(f'Variable "{varname}" is not found in any file in the config')
 
 def load_plugin_wrapper(self, plugin_path):
     directory = '/'.join(plugin_path.replace('\\','/').split('/')[:-1])
@@ -31,21 +53,21 @@ def load_plugin_wrapper(self, plugin_path):
     plugin = {"path":directory,"name":file}
     try:
         self.load_plugin(plugin)
-        self.text_output.append(f'Plugin {file} loaded sucessfully')
+        self.output_text(f'Plugin {file} loaded sucessfully')
     except Exception as e:
-        self.text_output.append(f'Plugin {file} not loaded ({e})')
+        self.output_text(f'Plugin {file} not loaded ({e})')
 
 def unload_plugin(self, plugin_name):
     for index, callback in enumerate(self.callbacks[:]):
         if callback["plugin"] == plugin_name:
-            self.unsubscribe_from_variable(callback["variable"],callback["plugin"],callback["function"])
+            self.unsubscribe_from_variable(callback["variable"],callback["plugin"],callback["method"])
 
-    for index, command in enumerate(self.command_manifest):
+    for index, command in enumerate(self.external_methods):
         if command["plugin"] == plugin_name:
-            self.command_manifest.pop(index)
+            self.external_methods.pop(index)
 
     del globals()[plugin_name]
-    self.text_output.append(f'Plugin {plugin_name} unplugged')
+    self.output_text(f'Plugin {plugin_name} unplugged')
     
 def check_subdict_in_dict_list(self, subdict, dict_list):
     for full_dict in dict_list:
@@ -66,12 +88,14 @@ def set_variable(self,var_name,new_value):
             self.__dict__[var_name] = int(new_value)
         elif isinstance(self.__dict__[var_name],float):
             self.__dict__[var_name] = float(new_value)
-        self.text_output.append("Changed "+var_name+" to "+str(new_value))
+        self.output_text("Changed "+var_name+" to "+str(new_value))
     except:
-        self.text_output.append("Cant change "+var_name+"("+type(self.__dict__[var_name])+")"+" to "+str(new_value))
+        self.output_text("Cant change "+var_name+"("+type(self.__dict__[var_name])+")"+" to "+str(new_value))
         
 def list_variables(self):
-    self.text_output.extend([varname for varname in self.__dict__])
+    for varname in self.__dict__:
+        self.output_text(varname)
+    
         
     
 def restart(self):

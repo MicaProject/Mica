@@ -1,0 +1,21 @@
+{
+    "auto_engine": [
+        "Open {browser} and search {*query}",
+        "On {browser} search {*query}",
+        "with {browser} search/open {*query}",
+        "open/search/play {*query} on/with {browser}"
+    ],
+    "add_template_to": [
+        "Append/Link {*template_to_add} to {method_to_add}"
+    ],
+    "print_templates": [
+        "what can i say",
+        "what can i say ?"
+    ],
+    "remove_template_from": [
+        "remove {*template_to_remove} from {linked_method}"
+    ],
+    "add_plugin": [
+        "add plugin {plugin_clone_url}"
+    ]
+}

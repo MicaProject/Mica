@@ -1,0 +1,31 @@
+{
+    "config_name": "default",
+    "loaded_plugins": [
+        {
+            "path": "plugins",
+            "name": "core"
+        },
+        {
+            "path": "plugins/nlp",
+            "name": "nlp_core"
+        },
+        {
+            "path": "plugins",
+            "name": "browser_interface"
+        },
+        {
+            "path": "plugins/community",
+            "name": "git_plugin_manager"
+        },
+        {
+            "path": "plugins",
+            "name": "websocket_server"
+        }
+    ],
+    "print_errors": true,
+    "break_on_error": true,
+    "check_packages": false,
+    "startup_commands": [
+        "server"
+    ]
+}
