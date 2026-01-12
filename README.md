@@ -132,8 +132,6 @@ Commands allows each plugin to declare commands that will allow the user to call
 ```
 More info [here](#commands-the-simplest-way-to-interact-with-your-assistant)
 
-
-
 ---
 ### nlp_core
 This plugin allows users to bind sentence templates to methods. More info [here](#talk-to-your-assistant-)
@@ -141,10 +139,6 @@ This plugin allows users to bind sentence templates to methods. More info [here]
 ---
 ### git_plugin_manager
 The simplest way to add plugins made by the community ! More info [here](#share-plugins-with-the-community-)
-
----
-### eliza
-Eliza is a natural language processing algorithm developped by Joseph Weizenbaum and serves as a lightweight implementation of a chatbot
 
 ---
 ### browser_interface
