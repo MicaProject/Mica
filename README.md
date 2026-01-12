@@ -3,7 +3,7 @@
 ```
  __  __  ___   ____     _    
 |  \/  ||_ _| / ___|   / \   
-| |\/| | | | | |      / _ \ The Ghost
+| |\/| | | | | |      / _ \ The Spirit
 | |  | | | | | |___  / ___ \ In the Machine
 |_|  |_||___| \____|/_/   \_\ 
 Modular Interdependent Chatbot for Assistance
