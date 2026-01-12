@@ -10,7 +10,7 @@ Modular Interdependent Chatbot for Assistance
 ```
 ![Say Hi!](tools/mica.ico)
 
-Mica leverages a plugin-based approach so you can integrate your plugins to fit exactly your needs.
+Mica leverages a plugin-based approach for you to integrate your plugins to fit exactly your needs.
 
 It is also shipped with an array of plugins showing the extent of its capabilities.
 
@@ -158,7 +158,7 @@ It then can be called in the command-line interface:
 ## Talk to your assistant !
 While command are useful, its often best to just talk to it ! The nlp_core plugin offers the possibility to bind natural language to command with arguments. For example, we can type the sentence "Search Robert Schuman on Google" into self.auto_engine("google", "Robert Schuman"). The underlying algorithm allows for much more complex natural language processing.
 
-### Binding your method to natuaral language templates
+### Binding your method to natural language templates
 in plugins/nlp, the file core_templates.json is the link between natural language and method, for example:
 ```json
 {
@@ -243,7 +243,7 @@ Simply create a public github repository named the same as the plugin, and place
 ```
 mica-assistant-plugin
 ```
-and voila, everyone can install your creation by typing
+and voila, everyone can install your creation by typing:
 ```
 add plugin YourName/YourPlugin
 ```
