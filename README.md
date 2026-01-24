@@ -12,7 +12,7 @@ Modular Interdependent Chatbot for Assistance
 
 Mica leverages a plugin-based approach for you to integrate your plugins to fit exactly your needs.
 
-It is also shipped with an array of plugins showing the extent of its capabilities.
+It is also shipped with an array of plugins to showcase the extent of its capabilities.
 
 
 ## Adding/Removing plugins
