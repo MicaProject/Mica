@@ -148,6 +148,12 @@ def get_arguments_from_template(self,text,template):
                 elif couple_c[1][0].startswith('{'):
                     kwargs[couple_c[1][0][2:-1]] = ' '.join(couple_c[0])
                 break
+    
+    #Last check, ensuring there are no words in the template that could have been ignored by the first phase, and that are not part of the args and kwargs
+
+    for word in text_list:
+        if word.lower() not in template_list + args + ' '.join(list(kwargs.values())).split(' '):
+            return False
 
     return (args, kwargs)
 
