@@ -23,5 +23,11 @@
     ],
     "remove_plugin": [
         "remove the/ plugin named/ {plugin_name}"
+    ],
+        "add_plugin_from_memory": [
+        "Add the/ local plugin {plugin_path}"
+    ],
+    "disable_plugin": [
+        "Disable the/ plugin named/ {plugin_name}"
     ]
 }

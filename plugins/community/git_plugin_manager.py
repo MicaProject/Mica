@@ -57,9 +57,9 @@ def delete_plugin(self, plugin_name):
 
 # -- plugin config management --
 
-def add_plugin_to_config(self, plugin_clone_url):
+def add_plugin_to_config(self, plugin_clone_url,path=False):
     name = plugin_clone_url.split('/')[-1].replace('.git','')
-    path = os.path.join(self.community_plugins_path, name)
+    if path==False: path = os.path.join(self.community_plugins_path, name)
     with open(self.config_path,"r") as f:
         full_config = json.load(f)
     full_config["loaded_plugins"].append({'path':path,'name':name})
@@ -132,6 +132,34 @@ def remove_plugin(self, plugin_name):
     self.remove_plugin_from_config(plugin_name)
     self.delete_plugin(plugin_name)
     self.output_text(f"Plugin {plugin_name} removed, please restart me to apply changes")
+
+def add_plugin_from_memory(self, plugin_path):
+
+    if os.path.exists(os.path.join(plugin_path,self.required_plugins_filename)):
+        with open(os.path.join(plugin_path,self.required_plugins_filename),"r") as f:
+            required_plugins = f.readlines()
+        for required_plugin in required_plugins:
+            found = False
+            for repo in self.found_repositories:
+                if repo.name == required_plugin:
+                    found = True
+                    self.output_text(f"{plugin_path}: getting required plugin {required_plugin}")
+                    self.add_plugin(repo.clone_url)
+            if not found:
+                self.output_text(f"{plugin_path}: plugin {required_plugin} not found !")
+    self.add_plugin_to_config(plugin_path,plugin_path)
+
+    name = plugin_path.replace('\\','/').split('/')[-1]
+    path = plugin_path
+    self.output_text(self.accent_color+name+self.normal_color+"... ", flush = True)
+    self.install_missing_packages(path)
+    self.load_plugin({'path':path,'name':name})
+    self.output_text("Done")
+
+def disable_plugin(self, plugin_name):
+    self.remove_plugin_from_config(plugin_name)
+    self.output_text(f"Plugin {plugin_name} disabled, please restart me to apply changes")
+
 
 def show_plugins(self, plugin_name=False):
     if plugin_name:
